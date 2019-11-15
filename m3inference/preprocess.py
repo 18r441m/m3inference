@@ -37,9 +37,9 @@ def download_resize_img(url, img_out_path, img_out_path_fullsize=None):
 def resize_img(img_path, img_out_path, filter=Image.BILINEAR, force=False):
     try:
         img = Image.open(img_path).convert("RGB")
-        if img.size[0] + img.size[1] < 400 and not force:
-            logger.info(f'{img_path} is too small. Skip.')
-            return
+#        if img.size[0] + img.size[1] < 400 and not force:
+#            logger.info(f'{img_path} is too small. Skip.')
+#            return
         img = img.resize((224, 224), filter)
         img.save(img_out_path)
     except Exception as e:
