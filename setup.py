@@ -16,7 +16,7 @@ setuptools.setup(
     long_description_content_type='text/markdown',
     python_requires='>=3.6',
     install_requires=reqs.strip().split('\n'),
-    url='https://github.com/euagendas/m3inference',
+    url='https://github.com/slavok400/m3inference',
     include_package_data=True,
     license='GNU Affero General Public License v3.0',
     packages=setuptools.find_packages()
