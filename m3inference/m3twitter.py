@@ -65,7 +65,8 @@ class M3Twitter(M3Inference):
             img_path = user[img_path_key]
             if resize_img:
                 dotpos = img_path.rfind(".")
-                img_file_resize = "{}/{}_224x224.{}".format(self.cache_dir, user["id_str"], img_path[dotpos + 1:])
+                ext = img_path[dotpos + 1:].lower().replace('.gif', '.jpg')
+                img_file_resize = "{}/{}_224x224.{}".format(self.cache_dir, user["id_str"], ext)
                 download_resize_img(img_path, img_file_resize)
             else:
                 img_file_resize = img_path
@@ -73,7 +74,8 @@ class M3Twitter(M3Inference):
             img_path = input[img_path_key]
             if resize_img:
                 dotpos = img_path.rfind(".")
-                img_file_resize = "{}/{}_224x224.{}".format(self.cache_dir, user["id_str"], img_path[dotpos + 1:])
+                ext = img_path[dotpos + 1:].lower().replace('.gif', '.jpg')
+                img_file_resize = "{}/{}_224x224.{}".format(self.cache_dir, user["id_str"], ext)
                 download_resize_img(img_path, img_file_resize)
             else:
                 img_file_resize = img_path
@@ -84,8 +86,9 @@ class M3Twitter(M3Inference):
             img_path = user["profile_image_url_https"]
             img_path = img_path.replace("_normal", "_400x400")
             dotpos = img_path.rfind(".")
-            img_file_full = "{}/{}.{}".format(self.cache_dir, user["id_str"], img_path[dotpos + 1:])
-            img_file_resize = "{}/{}_224x224.{}".format(self.cache_dir, user["id_str"], img_path[dotpos + 1:])
+            ext = img_path[dotpos + 1:].lower().replace('.gif', '.jpg')
+            img_file_full = "{}/{}.{}".format(self.cache_dir, user["id_str"], ext)
+            img_file_resize = "{}/{}_224x224.{}".format(self.cache_dir, user["id_str"], ext)
             if not os.path.isfile(img_file_resize):
                 if keep_full_size_img:
                     download_resize_img(img_path, img_file_resize, img_file_full)
