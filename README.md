@@ -25,7 +25,7 @@ M3 is a deep learning system for demographic inference that was trained on a mas
 
 ## Install
 ### TL;DR
-`pip install m3inference`
+`pip install git+https://github.com/SlavOK400/m3inference.git`
 
 * If there is an error with the installation of `torch`, you may install it with `conda` (see [here](https://pytorch.org/)). Alternatively, you could create a conda environment - see instructions below.
 
